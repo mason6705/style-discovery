@@ -487,7 +487,7 @@
             </div>
             <div class="s-header">
               <span class="s-wordmark">Style Discovery</span>
-              <button class="s-back" onclick="goBack()">← 返回</button>
+              <span class="s-tag">Pre-Interview</span>
             </div>
             <div class="s-rule"></div>
             <div class="s2-progress-wrap">
@@ -507,8 +507,8 @@
               <div class="s2-options" id="q-options"></div>
             </div>
             <div class="s-rule-bottom"></div>
-            <div class="s2-bottom">
-              <button class="s2-next" id="next-btn" onclick="tryNext()">看下一題</button>
+            <div class="sph-bottom">
+              <button class="sph-undo" id="back-btn" onclick="goBack()">← 上一題</button>
             </div>
           </div>
 
@@ -689,9 +689,8 @@
         btn.onclick = () => selectOpt(btn, i);
         container.appendChild(btn);
       });
-      const nextBtn = document.getElementById('next-btn');
-      nextBtn.classList.toggle('active', answers[qIdx] !== undefined);
-      nextBtn.textContent = qIdx === total - 1 ? '開始看照片' : '看下一題';
+      const backBtn = document.getElementById('back-btn');
+      if (backBtn) backBtn.className = qIdx > 0 ? 'sph-undo active' : 'sph-undo';
     }
 
     function fadeQ(callback) {
@@ -704,7 +703,13 @@
       document.querySelectorAll('.s2-option').forEach(o => o.classList.remove('selected'));
       el.classList.add('selected');
       answers[qIdx] = idx;
-      document.getElementById('next-btn').classList.add('active');
+      setTimeout(() => {
+        if (qIdx < QUESTIONS.length - 1) {
+          fadeQ(() => { qIdx++; renderQuestion(); });
+        } else {
+          startPhotoPhase();
+        }
+      }, 380);
     }
 
     function tryNext() {
