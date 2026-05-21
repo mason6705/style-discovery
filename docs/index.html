@@ -787,17 +787,31 @@
       goTo('s-photo');
     }
 
-    function renderPair() {
+    function renderPair(onReady) {
       const total = pairs.length;
       document.getElementById('sph-count').textContent = (pairIdx + 1) + ' / ' + total;
       document.getElementById('sph-fill').style.width = ((pairIdx + 1) / total * 100) + '%';
-      document.getElementById('sph-img-a').src = pairs[pairIdx][0].url;
-      document.getElementById('sph-img-b').src = pairs[pairIdx][1].url;
       document.getElementById('sph-undo').className = pairIdx > 0 ? 'sph-undo active' : 'sph-undo';
-      if (pairIdx + 1 < total) {
-        new Image().src = pairs[pairIdx + 1][0].url;
-        new Image().src = pairs[pairIdx + 1][1].url;
+      // 預加載後 3 組
+      for (let i = 1; i <= 3; i++) {
+        if (pairIdx + i < total) {
+          new Image().src = pairs[pairIdx + i][0].url;
+          new Image().src = pairs[pairIdx + i][1].url;
+        }
       }
+      const imgA = document.getElementById('sph-img-a');
+      const imgB = document.getElementById('sph-img-b');
+      const urlA = pairs[pairIdx][0].url;
+      const urlB = pairs[pairIdx][1].url;
+      if (!onReady) { imgA.src = urlA; imgB.src = urlB; return; }
+      // 等兩張都載入後才回調，最多等 800ms
+      let n = 0, settled = false;
+      const to = setTimeout(() => { settled = true; onReady(); }, 800);
+      const tick = () => { if (++n >= 2 && !settled) { settled = true; clearTimeout(to); onReady(); } };
+      imgA.onload = imgA.onerror = tick; imgA.src = urlA;
+      if (imgA.complete) { imgA.onload = imgA.onerror = null; tick(); }
+      imgB.onload = imgB.onerror = tick; imgB.src = urlB;
+      if (imgB.complete) { imgB.onload = imgB.onerror = null; tick(); }
     }
 
     function pickPhoto(idx) {
@@ -807,12 +821,13 @@
       const wrap = document.getElementById('sph-compare');
       setTimeout(() => {
         wrap.style.opacity = '0';
-        setTimeout(() => {
-          el.classList.remove('chosen');
-          pairIdx++;
-          if (pairIdx >= pairs.length) { renderResult(); goTo('s-result'); }
-          else { renderPair(); wrap.style.opacity = '1'; }
-        }, 180);
+        el.classList.remove('chosen');
+        pairIdx++;
+        if (pairIdx >= pairs.length) {
+          setTimeout(() => { renderResult(); goTo('s-result'); }, 200);
+        } else {
+          renderPair(() => { wrap.style.opacity = '1'; });
+        }
       }, 150);
     }
 
@@ -821,7 +836,8 @@
       pairHistory.pop();
       const wrap = document.getElementById('sph-compare');
       wrap.style.opacity = '0';
-      setTimeout(() => { pairIdx--; renderPair(); wrap.style.opacity = '1'; }, 180);
+      pairIdx--;
+      renderPair(() => { wrap.style.opacity = '1'; });
     }
 
     /* ── 結果計算與渲染 ── */
