@@ -809,11 +809,20 @@
     }
 
     /* ── 結果計算與渲染 ── */
+    let resultStyleKey = '';
+
     function renderResult() {
       const scores = calcScores();
       pairHistory.forEach(h => { scores[h.picked] = (scores[h.picked] || 0) + 2; });
       const top = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
-      const p = STYLE_PROFILES[top];
+      resultStyleKey = top;
+      history.replaceState(null, '', '#r=' + top);
+      showStyleResult(top);
+    }
+
+    function showStyleResult(key) {
+      const p = STYLE_PROFILES[key];
+      if (!p) return;
       const nameParts = p.name.match(/^(.{2})(.+)$/) || [p.name, p.name.slice(0,2), p.name.slice(2)];
       document.getElementById('r-name').innerHTML = nameParts[1] + '<em>' + nameParts[2] + '</em>';
       document.getElementById('r-desc').textContent = p.desc;
@@ -824,9 +833,10 @@
 
     /* ── 分享 ── */
     function shareResult() {
-      const url = location.href;
-      if (navigator.share) {
-        navigator.share({ title: 'Style Discovery 風格結果', url });
+      const url = location.origin + location.pathname + '#r=' + resultStyleKey;
+      const isMobile = window.matchMedia('(pointer: coarse)').matches;
+      if (isMobile && navigator.share) {
+        navigator.share({ title: 'Style Discovery 我的風格結果', url });
       } else {
         navigator.clipboard.writeText(url).then(() => showToast('連結已複製！'))
           .catch(() => showToast('請手動複製網址列'));
@@ -843,6 +853,14 @@
 
     /* 初始化 */
     renderQuestion();
+
+    /* 如果是分享連結直接落地結果頁 */
+    const hashMatch = location.hash.match(/^#r=(\w+)$/);
+    if (hashMatch && STYLE_PROFILES[hashMatch[1]]) {
+      resultStyleKey = hashMatch[1];
+      showStyleResult(hashMatch[1]);
+      goTo('s-result');
+    }
   </script>
 </body>
 </html>
