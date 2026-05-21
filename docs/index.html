@@ -638,22 +638,23 @@
       [{ec:2,bp:2,sc:1},{jp:2,mc:1,ba:1},{wc:2,sc:1,ws:1},{ba:2,md:1,dk:1,mc:1}],
     ];
 
-    /* ── 60 張照片池（12 風格 × 5 張）── */
+    /* ── 120 張照片池（12 風格 × 10 張）── */
     const U = 'https://images.unsplash.com/';
+    const P = 'https://plus.unsplash.com/';
     const Q_ = '?w=900&h=600&fit=crop&crop=center&auto=format&q=85';
     const PHOTO_POOL = {
-      jp: [U+'photo-1544860707-c352cc5a92e3'+Q_,U+'photo-1699869653495-fe26f4c70b3e'+Q_,U+'photo-1763419161907-1e00b2f883c5'+Q_,U+'photo-1610333684078-c89bd57f2e46'+Q_,U+'photo-1731780027137-0b808038a87f'+Q_],
-      ws: [U+'photo-1753800558729-7929703f81de'+Q_,U+'photo-1676536162793-faa565d976d4'+Q_,U+'photo-1678121039070-fedd1e9c2cf4'+Q_,U+'photo-1777513538143-8525eb3943f6'+Q_,U+'photo-1778956783478-94a9d4361213'+Q_],
-      sc: [U+'photo-1571164860029-856acbc24b4a'+Q_,U+'photo-1772797583328-f83bc3f94f80'+Q_,U+'photo-1747336754868-82d5bef02448'+Q_,U+'photo-1747336754845-0fac9b2581cc'+Q_,U+'photo-1747336754900-1b9edb05b002'+Q_],
-      md: [U+'photo-1505577058444-a3dab90d4253'+Q_,U+'photo-1544234674-d099c6efdb0d'+Q_,U+'photo-1687579520868-b22b33ca8fa5'+Q_,U+'photo-1630698678018-59797f4328e1'+Q_,U+'photo-1620995611021-bfa0b4d7f43c'+Q_],
-      ind:[U+'photo-1767706508383-097054618007'+Q_,U+'photo-1652716279221-439c33c3b835'+Q_,U+'photo-1603621776288-a6a06af35675'+Q_,U+'photo-1636044131178-97f3bd19d3f4'+Q_,U+'photo-1732767545489-0f5dd565bc9b'+Q_],
-      lx: [U+'photo-1758448755778-90ebf4d0f1e7'+Q_,U+'photo-1759038085870-c254e539e655'+Q_,U+'photo-1615887555256-2e759d0e6ad5'+Q_,U+'photo-1698335444303-963ad8397e12'+Q_,U+'photo-1684928365236-f270f1008d59'+Q_],
-      dk: [U+'photo-1549654378-6a6d59af5767'+Q_,U+'photo-1570864488363-969935061bea'+Q_,U+'photo-1665537826427-33b494cfc3b2'+Q_,U+'photo-1612179734712-cf83cbc7e400'+Q_,U+'photo-1633414202987-efee1fee1725'+Q_],
-      mc: [U+'photo-1762738499123-fb1e9771e11a'+Q_,U+'photo-1770425910016-4b1b45991db9'+Q_,U+'photo-1737103515275-ebc1b6934c13'+Q_,U+'photo-1738748444676-113d30c9a25b'+Q_,U+'photo-1625707695772-5dd6c1f9c107'+Q_],
-      bp: [U+'photo-1767331290386-de84a43d7c49'+Q_,U+'photo-1778331473048-5019a461a763'+Q_,U+'photo-1749703935744-aad92b3cf6ef'+Q_,U+'photo-1764705639956-801d5b6ef197'+Q_,U+'photo-1773823047253-f393acd0f982'+Q_],
-      ec: [U+'photo-1631509824910-82791a0e43d1'+Q_,U+'photo-1659640219304-b5656eee3465'+Q_,U+'photo-1650138278103-1f8a3d208cb3'+Q_,U+'photo-1650138318699-a7916aced967'+Q_,U+'photo-1650137269022-cbeaf3274bf7'+Q_],
-      ba: [U+'photo-1771678040588-d88ff1fb2370'+Q_,U+'photo-1775359924001-9cf0e5d3adf5'+Q_,U+'photo-1613324061338-19d4528a5be9'+Q_,U+'photo-1696986324679-dad26261d579'+Q_,U+'photo-1616269653855-cc3505802917'+Q_],
-      wc: [U+'photo-1759774310475-bef94b4c9319'+Q_,U+'photo-1758545692685-e61b35b7e0bb'+Q_,U+'photo-1766393030567-2204662b0be2'+Q_,U+'photo-1650043973600-965e1b4d1427'+Q_,U+'photo-1606576328477-80bacbdeb8b8'+Q_],
+      jp: [U+'photo-1544860707-c352cc5a92e3'+Q_,U+'photo-1699869653495-fe26f4c70b3e'+Q_,U+'photo-1763419161907-1e00b2f883c5'+Q_,U+'photo-1610333684078-c89bd57f2e46'+Q_,U+'photo-1731780027137-0b808038a87f'+Q_,U+'photo-1752658918430-e3ff8a92c4e9'+Q_,U+'photo-1768666197944-599ea736a4f7'+Q_,U+'photo-1775377388137-a6df3826623d'+Q_,U+'photo-1764445274424-47bbc216073b'+Q_,U+'photo-1777013368715-c2b506c5e6d0'+Q_],
+      ws: [U+'photo-1753800558729-7929703f81de'+Q_,U+'photo-1676536162793-faa565d976d4'+Q_,U+'photo-1678121039070-fedd1e9c2cf4'+Q_,U+'photo-1777513538143-8525eb3943f6'+Q_,U+'photo-1778956783478-94a9d4361213'+Q_,U+'photo-1683735669803-2cf67a3edda5'+Q_,U+'photo-1700709678038-fcebeac42106'+Q_,U+'photo-1677204707224-472d63fe2a66'+Q_,U+'photo-1700709678013-37edebca9ffc'+Q_,U+'photo-1677204708410-859656e196e1'+Q_],
+      sc: [U+'photo-1571164860029-856acbc24b4a'+Q_,U+'photo-1772797583328-f83bc3f94f80'+Q_,U+'photo-1747336754868-82d5bef02448'+Q_,U+'photo-1747336754845-0fac9b2581cc'+Q_,U+'photo-1747336754900-1b9edb05b002'+Q_,U+'photo-1583847268964-b28dc8f51f92'+Q_,U+'photo-1723748972084-4124765e0a55'+Q_,U+'photo-1567225557594-88d73e55f2cb'+Q_,U+'photo-1541085929911-dea736e9287b'+Q_,U+'photo-1610307540583-7472788642d6'+Q_],
+      md: [U+'photo-1505577058444-a3dab90d4253'+Q_,U+'photo-1544234674-d099c6efdb0d'+Q_,U+'photo-1687579520868-b22b33ca8fa5'+Q_,U+'photo-1630698678018-59797f4328e1'+Q_,U+'photo-1620995611021-bfa0b4d7f43c'+Q_,U+'photo-1527787037034-8b5b443653b7'+Q_,U+'photo-1490465998231-e16519a88298'+Q_,U+'photo-1512916194211-3f2b7f5f7de3'+Q_,U+'photo-1672865362636-2a1c08284ede'+Q_,U+'photo-1512918580421-b2feee3b85a6'+Q_],
+      ind:[U+'photo-1767706508383-097054618007'+Q_,U+'photo-1652716279221-439c33c3b835'+Q_,U+'photo-1603621776288-a6a06af35675'+Q_,U+'photo-1636044131178-97f3bd19d3f4'+Q_,U+'photo-1732767545489-0f5dd565bc9b'+Q_,U+'photo-1776090188410-f71a7ebf6ba7'+Q_,U+'photo-1767294274791-00850286c180'+Q_,U+'photo-1769184614230-f801fac56fb1'+Q_,P+'premium_photo-1682125919133-484f50cfa51d'+Q_,P+'premium_photo-1661881888792-80a1297a5b9e'+Q_],
+      lx: [U+'photo-1758448755778-90ebf4d0f1e7'+Q_,U+'photo-1759038085870-c254e539e655'+Q_,U+'photo-1615887555256-2e759d0e6ad5'+Q_,U+'photo-1698335444303-963ad8397e12'+Q_,U+'photo-1684928365236-f270f1008d59'+Q_,U+'photo-1618221195710-dd6b41faaea6'+Q_,U+'photo-1564078516393-cf04bd966897'+Q_,U+'photo-1606744837616-56c9a5c6a6eb'+Q_,U+'photo-1567016376408-0226e4d0c1ea'+Q_,U+'photo-1622372738946-62e02505feb3'+Q_],
+      dk: [U+'photo-1549654378-6a6d59af5767'+Q_,U+'photo-1570864488363-969935061bea'+Q_,U+'photo-1665537826427-33b494cfc3b2'+Q_,U+'photo-1612179734712-cf83cbc7e400'+Q_,U+'photo-1633414202987-efee1fee1725'+Q_,U+'photo-1577892210326-4b00a7a9cb47'+Q_,U+'photo-1657593088889-5105c637f2a8'+Q_,U+'photo-1609599176235-f93af914fde0'+Q_,U+'photo-1655470822882-4cfdbd0f7fc7'+Q_,U+'photo-1506105187069-963628d0dfc7'+Q_],
+      mc: [U+'photo-1762738499123-fb1e9771e11a'+Q_,U+'photo-1770425910016-4b1b45991db9'+Q_,U+'photo-1737103515275-ebc1b6934c13'+Q_,U+'photo-1738748444676-113d30c9a25b'+Q_,U+'photo-1625707695772-5dd6c1f9c107'+Q_,U+'photo-1545805453-e95c05f330dc'+Q_,U+'photo-1547587091-f883cf8f0c12'+Q_,U+'photo-1593696140826-c58b021acf8b'+Q_,U+'photo-1524758631624-e2822e304c36'+Q_,U+'photo-1648073758914-e89702d116bc'+Q_],
+      bp: [U+'photo-1767331290386-de84a43d7c49'+Q_,U+'photo-1778331473048-5019a461a763'+Q_,U+'photo-1749703935744-aad92b3cf6ef'+Q_,U+'photo-1764705639956-801d5b6ef197'+Q_,U+'photo-1773823047253-f393acd0f982'+Q_,U+'photo-1767294274997-73b0e564752e'+Q_,U+'photo-1776071287236-9faf60d6c931'+Q_,U+'photo-1772795831981-4b66d1a3063e'+Q_,U+'photo-1778641603097-04cde5a4c0d5'+Q_,U+'photo-1773558058335-e49bca28e12d'+Q_],
+      ec: [U+'photo-1631509824910-82791a0e43d1'+Q_,U+'photo-1659640219304-b5656eee3465'+Q_,U+'photo-1650138278103-1f8a3d208cb3'+Q_,U+'photo-1650138318699-a7916aced967'+Q_,U+'photo-1650137269022-cbeaf3274bf7'+Q_,U+'photo-1562819440-611131141043'+Q_,U+'photo-1777714221034-0d5152d676df'+Q_,U+'photo-1762917815708-f1350dd70cd8'+Q_,U+'photo-1775746981330-b10308c4613d'+Q_,U+'photo-1777714221171-35571692c570'+Q_],
+      ba: [U+'photo-1771678040588-d88ff1fb2370'+Q_,U+'photo-1775359924001-9cf0e5d3adf5'+Q_,U+'photo-1613324061338-19d4528a5be9'+Q_,U+'photo-1696986324679-dad26261d579'+Q_,U+'photo-1616269653855-cc3505802917'+Q_,U+'photo-1768609239321-1cfe14893e80'+Q_,U+'photo-1721069275326-5fd80e01ce8d'+Q_,U+'photo-1758548157126-e4c0477f796e'+Q_,U+'photo-1762545352529-1e624dad0548'+Q_,U+'photo-1772475385317-09f9ef320474'+Q_],
+      wc: [U+'photo-1759774310475-bef94b4c9319'+Q_,U+'photo-1758545692685-e61b35b7e0bb'+Q_,U+'photo-1766393030567-2204662b0be2'+Q_,U+'photo-1650043973600-965e1b4d1427'+Q_,U+'photo-1606576328477-80bacbdeb8b8'+Q_,U+'photo-1757792859308-b8d2115a0010'+Q_,U+'photo-1758228147081-8cf6aaf9d72a'+Q_,U+'photo-1770736158887-9a0f3702416e'+Q_,U+'photo-1766145366660-a92d5c0efb31'+Q_,U+'photo-1770731959663-88c9c60dc299'+Q_],
     };
     const STYLE_LABELS = {jp:'日系極簡',ws:'侘寂自然',sc:'北歐溫暖',md:'地中海明亮',ind:'精緻工業',lx:'當代奢感',dk:'深色沉穩',mc:'現代冷調',bp:'自然療癒',ec:'溫暖混搭',ba:'開闊極簡',wc:'暖黃燭光感'};
     const STYLE_KEYS = Object.keys(PHOTO_POOL);
@@ -747,9 +748,9 @@
     function buildPairs(scores) {
       const sorted = Object.entries(scores).sort((a,b) => b[1] - a[1]);
       const pools = {};
-      sorted.slice(0,3).forEach(([s]) => { pools[s] = [...PHOTO_POOL[s]]; });
-      sorted.slice(3,5).forEach(([s]) => { pools[s] = PHOTO_POOL[s].slice(0,4); });
-      sorted.slice(5,6).forEach(([s]) => { pools[s] = PHOTO_POOL[s].slice(0,3); });
+      sorted.slice(0,3).forEach(([s]) => { pools[s] = [...PHOTO_POOL[s]]; });         // 10 張
+      sorted.slice(3,5).forEach(([s]) => { pools[s] = PHOTO_POOL[s].slice(0,8); });   // 8 張
+      sorted.slice(5,6).forEach(([s]) => { pools[s] = PHOTO_POOL[s].slice(0,6); });   // 6 張
 
       const all = [];
       Object.entries(pools).forEach(([s, urls]) => {
