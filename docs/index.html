@@ -592,13 +592,11 @@
       setTimeout(() => {
         fromEl.classList.add('hidden');
         fromEl.style.opacity = '';
-        document.getElementById('dot-' + cur).classList.remove('active');
         cur = SCREENS.indexOf(id);
         const toEl = document.getElementById(id);
         toEl.style.opacity = '0';
         toEl.classList.remove('hidden');
         requestAnimationFrame(() => requestAnimationFrame(() => { toEl.style.opacity = '1'; }));
-        document.getElementById('dot-' + cur).classList.add('active');
       }, 220);
     }
 
