@@ -9,70 +9,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #161616;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 24px 60px;
-      font-family: -apple-system, 'PingFang TC', sans-serif;
-    }
-    .page-title {
-      color: rgba(255,255,255,0.35);
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .page-sub {
-      color: rgba(255,255,255,0.18);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      margin-bottom: 40px;
-    }
-
-    /* Phone shell */
-    .phone-shell {
-      width: 300px;
-      height: 648px;
-      background: #0E0E0E;
-      border-radius: 46px;
-      padding: 10px;
-      box-shadow:
-        0 0 0 1.5px #3A3A3A,
-        0 40px 100px rgba(0,0,0,0.8),
-        0 8px 24px rgba(0,0,0,0.6);
-      position: relative;
-    }
-    .dynamic-island {
-      position: absolute;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 96px;
-      height: 28px;
-      background: #000;
-      border-radius: 20px;
-      z-index: 10;
-    }
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 38px;
-      overflow: hidden;
       background: #F5EFE5;
-    }
-    .scale-wrap {
-      width: 375px;
-      height: 812px;
-      transform: scale(0.747);
-      transform-origin: top left;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: -apple-system, 'PingFang TC', sans-serif;
     }
 
     /* App root */
     .app {
-      width: 375px;
-      height: 812px;
+      width: 100%;
+      height: 100dvh;
       overflow: hidden;
       position: relative;
       background: #F5EFE5;
@@ -82,8 +29,8 @@
     .screen {
       position: absolute;
       inset: 0;
-      width: 375px;
-      height: 812px;
+      width: 100%;
+      height: 100dvh;
       background: #F5EFE5;
       color: #1A150F;
       font-family: 'Cormorant Garamond', 'Georgia', serif;
@@ -489,37 +436,10 @@
     }
 
     /* Bottom nav */
-    .screen-nav {
-      display: flex;
-      gap: 8px;
-      margin-top: 20px;
-      align-items: center;
-      justify-content: center;
-    }
-    .screen-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-      transition: background 0.25s;
-    }
-    .screen-dot.active { background: rgba(255,255,255,0.7); }
-    .footer-hint {
-      margin-top: 10px;
-      color: rgba(255,255,255,0.15);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-    }
   </style>
 </head>
 <body>
-  <p class="page-title">Style Discovery · 三頁原型</p>
-  <p class="page-sub">封面 → 問卷 → 結果　· 可點擊互動</p>
-
-  <div class="phone-shell">
-    <div class="dynamic-island"></div>
-    <div class="phone-screen">
-      <div class="scale-wrap">
-        <div class="app">
+  <div class="app">
 
           <!-- PAGE 1: 封面 -->
           <div class="screen" id="s-intro">
@@ -662,17 +582,7 @@
           </div>
 
         </div>
-      </div>
-    </div>
   </div>
-
-  <div class="screen-nav">
-    <div class="screen-dot active" id="dot-0"></div>
-    <div class="screen-dot" id="dot-1"></div>
-    <div class="screen-dot" id="dot-2"></div>
-    <div class="screen-dot" id="dot-3"></div>
-  </div>
-  <p class="footer-hint">點「開始探索」進入問卷頁</p>
 
   <script>
     /* ── 頁面切換 ── */
