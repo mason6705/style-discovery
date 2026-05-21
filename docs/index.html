@@ -573,8 +573,8 @@
             </div>
             <div class="s-rule-bottom"></div>
             <div class="s3-bottom">
-              <button class="s3-cta">與設計師分享</button>
-              <p class="s3-note">點擊後產生可分享連結</p>
+              <button class="s3-cta" onclick="shareResult()">與設計師分享</button>
+              <p class="s3-note">點擊後複製連結，傳給設計師</p>
             </div>
           </div>
 
@@ -820,6 +820,25 @@
       document.getElementById('r-tone').textContent = p.tone;
       document.getElementById('r-space').textContent = p.space;
       document.getElementById('r-material').textContent = p.material;
+    }
+
+    /* ── 分享 ── */
+    function shareResult() {
+      const url = location.href;
+      if (navigator.share) {
+        navigator.share({ title: 'Style Discovery 風格結果', url });
+      } else {
+        navigator.clipboard.writeText(url).then(() => showToast('連結已複製！'))
+          .catch(() => showToast('請手動複製網址列'));
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1A150F;color:#F5EFE5;padding:10px 20px;border-radius:24px;font-size:13px;letter-spacing:0.06em;z-index:999;pointer-events:none;transition:opacity 0.4s';
+      document.body.appendChild(t);
+      setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 400); }, 1800);
     }
 
     /* 初始化 */
