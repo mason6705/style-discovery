@@ -624,12 +624,18 @@
 
     /* ── 分數映射：SCORE_MAP[題號][選項] = {風格: 加分} ── */
     const SCORE_MAP = [
-      [{jp:2,ws:2,mc:1,ba:1},{sc:2,wc:2,md:1,ec:1},{ba:2,mc:2,jp:1},{ec:2,lx:1,ind:1,md:1}],
-      [{jp:2,mc:2,ba:1},{ws:2,sc:1,bp:1},{ec:2,md:1,bp:1},{lx:2,ind:1,dk:1}],
-      [{ws:2,sc:2,bp:1,jp:1},{mc:2,jp:1,ba:1},{ind:2,dk:1},{lx:2,dk:2,ind:1}],
-      [{ba:2,md:2,sc:1},{wc:2,ws:1,sc:1,ec:1},{lx:2,ind:1,dk:1},{wc:2,ws:1,dk:1}],
-      [{ws:2,wc:1,bp:1,jp:1},{mc:2,jp:1,ba:1},{md:2,ec:2,sc:1},{lx:2,ind:1,dk:1}],
-      [{ec:2,bp:1,sc:1},{jp:2,mc:1,ba:1},{wc:2,sc:1,ws:1},{ba:2,md:1,mc:1}],
+      // Q0 安靜/溫暖/清醒/振奮
+      [{jp:2,ws:2},{sc:2,wc:2,bp:1},{ba:2,mc:2},{ec:2,lx:1,ind:1,md:1}],
+      // Q1 物品關係：留空/順手/熱鬧/精品
+      [{jp:2,mc:1,ba:1},{ws:2,sc:1,bp:2},{ec:2,md:1},{lx:2,ind:1,dk:1}],
+      // Q2 觸感：原木藤/玻璃烤漆/磚鐵水泥/大理石絨布
+      [{ws:2,sc:1,jp:1,bp:1},{mc:2,ba:1},{ind:2,dk:2},{lx:2,dk:1,ind:1}],
+      // Q3 光線：日光/暖黃/重點打光/燭光
+      [{ba:2,md:2,sc:1,bp:1},{wc:2,ec:1,sc:1},{lx:2,ind:2,dk:1},{wc:2,ws:1,jp:1}],
+      // Q4 狀態：緩慢/俐落/熱鬧/講究
+      [{jp:2,bp:2,wc:1},{mc:2,ba:1,jp:1},{md:2,ec:2,sc:1},{lx:2,dk:2,ind:1}],
+      // Q5 逃避：空蕩/雜亂/冰冷/厚重
+      [{ec:2,bp:2,sc:1},{jp:2,mc:1,ba:1},{wc:2,sc:1,ws:1},{ba:2,md:1,dk:1,mc:1}],
     ];
 
     /* ── 60 張照片池（12 風格 × 5 張）── */
