@@ -859,6 +859,7 @@
       resultStyleKey = hashMatch[1];
       showStyleResult(hashMatch[1]);
       goTo('s-result');
+      history.replaceState(null, '', location.pathname);
     }
   </script>
 </body>
